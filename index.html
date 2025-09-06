@@ -3,137 +3,189 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Age Calculator - Calculate Your Age Online</title>
+  <title>Hexa Blog - Tech Tutorials, Web Development & Age Calculator</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Free Age Calculator - Find your exact age in years, months, and days instantly online.">
-  <meta name="keywords" content="age calculator, calculate age online, find age, years months days">
-  <meta name="author" content="Your Name">
-  <meta name="robots" content="index, follow">
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Hexa Blog - Read tutorials, guides, and updates on web development, coding, productivity, and use our free age calculator tool." />
+  <meta name="keywords" content="Hexa Blog, web development, coding tutorials, JavaScript, HTML, CSS, productivity tips, age calculator" />
+  <meta name="author" content="Your Name" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="38e2bd0fb387ca4b" />
-
-  <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Age Calculator - Calculate Your Age Online" />
-  <meta property="og:description" content="Use our free age calculator to find your exact age in years, months, and days instantly." />
+  <!-- ✅ Open Graph / Facebook -->
+  <meta property="og:title" content="Hexa Blog - Tech Tutorials & Free Age Calculator" />
+  <meta property="og:description" content="Learn web development, JavaScript, coding tutorials, productivity tips, and calculate your age instantly online." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourusername.github.io/your-repository" />
+  <meta property="og:url" content="https://yourusername.github.io/your-repository/" />
   <meta property="og:image" content="https://yourusername.github.io/your-repository/preview-image.png" />
-  <meta property="og:site_name" content="Age Calculator" />
+  <meta property="og:site_name" content="Hexa Blog" />
 
-  <!-- Twitter Card -->
+  <!-- ✅ Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Age Calculator - Calculate Your Age Online" />
-  <meta name="twitter:description" content="Use our free age calculator to find your exact age in years, months, and days instantly." />
+  <meta name="twitter:title" content="Hexa Blog - Tech Tutorials & Free Age Calculator" />
+  <meta name="twitter:description" content="Stay updated with coding tutorials, web development guides, and use our free age calculator tool." />
   <meta name="twitter:image" content="https://yourusername.github.io/your-repository/preview-image.png" />
 
-  <!-- Favicon -->
+  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
-    /* Reset */
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-    body { min-height:100vh; background:linear-gradient(135deg,#74ebd5,#9face6); transition:background 0.3s ease; }
+
+    /* 🌞 Light Theme */
+    body { 
+      min-height:100vh; 
+      background:linear-gradient(135deg, #ffffff, #e6f0ff); 
+      color:#000; 
+      transition:background 0.3s ease, color 0.3s ease; 
+    }
 
     /* Navbar */
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 25px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border-radius:15px; margin:15px; box-shadow:0 4px 20px rgba(0,0,0,0.2); }
-    .navbar .logo img { max-height:50px; width:auto; }
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 25px; background:rgba(255,255,255,0.8); border-radius:15px; margin:15px; box-shadow:0 4px 20px rgba(0,0,0,0.1); backdrop-filter:blur(10px); }
+    .logo-title { display:flex; align-items:center; gap:15px; }
+    .logo-title img { max-height:50px; }
+    .site-title { font-size:1.4rem; font-weight:600; color:#000; }
     .navbar ul { list-style:none; display:flex; gap:20px; }
-    .navbar ul li a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
-    .navbar ul li a:hover { color:#ffd700; }
-    .menu-toggle { display:none; font-size:1.8rem; color:#fff; cursor:pointer; }
+    .navbar ul li a { text-decoration:none; color:#000; font-weight:500; transition:0.3s; }
+    .navbar ul li a:hover { color:#2575fc; }
+    .menu-toggle { display:none; font-size:1.8rem; color:#000; cursor:pointer; }
+    .toggle-btn { background:#000; color:#fff; border:none; padding:8px 14px; border-radius:20px; cursor:pointer; font-size:0.9rem; margin-left:15px; }
+    .toggle-btn:hover { background:#333; }
 
     @media (max-width:768px) {
-      .navbar ul { display:none; flex-direction:column; background:rgba(0,0,0,0.7); position:absolute; top:70px; right:20px; padding:15px; border-radius:12px; }
+      .navbar ul { display:none; flex-direction:column; background:#333; position:absolute; top:70px; right:20px; padding:15px; border-radius:12px; }
+      .navbar ul li a { color:#fff; }
       .navbar ul.active { display:flex; }
       .menu-toggle { display:block; }
     }
 
     /* Container */
-    .container { background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border-radius:20px; padding:40px; text-align:center; width:90%; max-width:400px; margin:60px auto; box-shadow:0 8px 32px rgba(0,0,0,0.2); transition:background 0.3s ease; }
-    h1 { font-size:1.8rem; color:#fff; margin-bottom:20px; }
-    input[type="date"] { padding:12px; border-radius:10px; border:none; outline:none; width:100%; font-size:1rem; margin-bottom:20px; }
-    button { background:linear-gradient(to right,#2575fc,#6a11cb); border:none; color:#fff; padding:12px 20px; font-size:1rem; border-radius:12px; cursor:pointer; transition:0.3s ease; width:100%; }
-    button:hover { opacity:0.9; transform:scale(1.03); }
-    .result { margin-top:25px; font-size:1.2rem; font-weight:500; color:#fff; }
+    .container { width:90%; max-width:1000px; margin:40px auto; }
 
-    /* Dark Mode */
-    body.dark { background:linear-gradient(135deg,#141e30,#243b55); }
+    h1 { font-size:2rem; text-align:center; margin-bottom:30px; }
+    h2, h3 { margin-bottom:15px; }
+
+    /* Blog Posts */
+    .posts { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+    .post { background:rgba(255,255,255,0.9); border-radius:15px; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s ease; backdrop-filter:blur(10px); }
+    .post:hover { transform:translateY(-5px); }
+    .post img { width:100%; border-radius:12px; margin-bottom:15px; }
+    .post h2 { font-size:1.4rem; margin-bottom:10px; }
+    .post p { font-size:0.95rem; margin-bottom:15px; color:#333; }
+    .read-more { display:inline-block; background:linear-gradient(to right,#2575fc,#6a11cb); color:#fff; padding:8px 15px; border-radius:10px; text-decoration:none; font-size:0.9rem; }
+    .read-more:hover { opacity:0.9; }
+
+    /* Age Calculator */
+    .tool-section { margin:50px auto; text-align:center; }
+    .age-container { background:rgba(255,255,255,0.9); border-radius:20px; padding:30px; text-align:center; width:90%; max-width:400px; margin:20px auto; box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(10px); }
+    .age-container h2 { font-size:1.6rem; margin-bottom:20px; }
+    input[type="date"] { padding:12px; border-radius:10px; border:1px solid #ccc; outline:none; width:100%; font-size:1rem; margin-bottom:20px; }
+    button.calc-btn { background:linear-gradient(to right,#2575fc,#6a11cb); border:none; color:#fff; padding:12px 20px; font-size:1rem; border-radius:12px; cursor:pointer; transition:0.3s ease; width:100%; }
+    button.calc-btn:hover { opacity:0.9; transform:scale(1.03); }
+    .result { margin-top:25px; font-size:1.2rem; font-weight:500; color:#000; }
+
+    /* Sidebar */
+    .sidebar { margin-top:40px; background:rgba(255,255,255,0.9); padding:20px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1); backdrop-filter:blur(10px); }
+    .sidebar h3 { margin-bottom:15px; }
+    .sidebar ul { list-style:none; }
+    .sidebar ul li { margin-bottom:10px; }
+    .sidebar ul li a { color:#000; text-decoration:none; }
+    .sidebar ul li a:hover { color:#2575fc; }
+
+    /* 🌙 Dark Theme */
+    body.dark { background:linear-gradient(135deg,#141e30,#243b55); color:#f0f0f0; }
     body.dark .navbar { background:rgba(0,0,0,0.4); }
-    body.dark .navbar .logo img, body.dark .navbar ul li a, body.dark h1, body.dark .result { color:#f0f0f0; }
-    body.dark .container { background:rgba(0,0,0,0.3); }
-
-    /* Dark Mode Button */
-    .toggle-btn { background:#fff; color:#333; border:none; padding:8px 14px; border-radius:20px; cursor:pointer; font-size:0.9rem; font-weight:500; transition:0.3s ease; margin-left:15px; }
-    .toggle-btn:hover { background:#eee; }
-
-    /* Logo + Title container */
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between; /* logo-title left, menu right */
-  align-items: center; /* vertically center everything */
-  padding: 15px 25px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  margin: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-
-/* Logo + Title container */
-.logo-title {
-  display: flex;
-  align-items: center; /* vertically center logo and text */
-  gap: 20px; /* space between logo and text */
-}
-
-/* Logo image */
-.logo-title img {
-  max-height: 50px;
-  width: auto;
-}
-
-/* Title text */
-.site-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* Dark mode title color */
-body.dark .site-title {
-  color: #f0f0f0;
-}
-
-
+    body.dark .site-title, body.dark h1, body.dark h2, body.dark p, body.dark .sidebar h3, body.dark .sidebar ul li a { color:#f0f0f0; }
+    body.dark .post, body.dark .age-container, body.dark .sidebar { background:rgba(0,0,0,0.3); }
+    body.dark .navbar ul li a { color:#fff; }
+    body.dark .menu-toggle { color:#fff; }
+    
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo"><img src="images.png" alt="Hexa Age Calculator Logo"> <span class="site-title">Hexa Age Calculator</span></div>
+  <!-- ✅ Navbar -->
+  <nav class="navbar" role="navigation">
+    <div class="logo-title">
+      <img src="images.png" alt="Hexa Blog Logo" />
+      <span class="site-title">Hexa Blog</span>
+    </div>
     <ul id="nav-links">
       <li><a href="#">Home</a></li>
-      <li><a href="#">Calculator</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">Tutorials</a></li>
+      <li><a href="#age-tool">Tools</a></li>
     </ul>
     <div>
       <button class="toggle-btn" onclick="toggleMode()">🌙 Dark</button>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
-  </div>
+  </nav>
 
-  <!-- Age Calculator -->
-  <div class="container">
-    <h1>✨ Age Calculator ✨</h1>
-    <input type="date" id="dob" />
-    <button onclick="calculateAge()">Calculate Age</button>
-    <div class="result" id="result"></div>
-  </div>
+  <!-- ✅ Blog Section -->
+  <main class="container">
+    <h1>📝 Latest Blog Posts</h1>
+    <section class="posts">
+      <article class="post">
+        <img src="blog-icon-vector.jpg" alt="Guide to building a blog website" />
+        <h2>How to Build a Blog with HTML, CSS & JS</h2>
+        <p>Learn step-by-step how to create your own blog website using modern design and SEO best practices...</p>
+        <a href="#" class="read-more">Read More</a>
+      </article>
+      <article class="post">
+        <img src="coding-icon.jpg" alt="Coding practices for beginners" />
+        <h2>Top 10 Coding Practices for Beginners</h2>
+        <p>Every beginner should follow these essential tips to write clean, efficient, and error-free code...</p>
+        <a href="#" class="read-more">Read More</a>
+      </article>
+      <article class="post">
+        <img src="OIP.jpeg" alt="JavaScript learning roadmap" />
+        <h2>Mastering JavaScript in 30 Days</h2>
+        <p>A complete roadmap to learn JavaScript fundamentals, ES6, and advanced concepts in one month...</p>
+        <a href="#" class="read-more">Read More</a>
+      </article>
+    </section>
+
+    <!-- ✅ Age Calculator -->
+    <section class="tool-section" id="age-tool">
+      <div class="age-container">
+        <h2>✨ Free Age Calculator ✨</h2>
+        <input type="date" id="dob" aria-label="Enter your date of birth" />
+        <button class="calc-btn" onclick="calculateAge()">Calculate Age</button>
+        <button class="calc-btn" onclick="clearDOB()" style="background:#ff4d4f; margin-top:10px;">Clear</button>
+        <div class="result" id="result"></div>
+      </div>
+    </section>
+
+    <!-- ✅ Sidebar -->
+    <aside class="sidebar">
+      <h3>📂 Categories</h3>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">CSS & Design</a></li>
+        <li><a href="#">Productivity</a></li>
+      </ul>
+      <h3>🔎 Search</h3>
+      <input type="text" id="searchBox" placeholder="Search articles..." style="padding:8px;width:100%;border-radius:8px;border:1px solid #ccc;" />
+    </aside>
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer style="text-align:center; padding:20px; margin-top:40px; background:rgba(75, 74, 74, 0.8); border-radius:10px;">
+    <p>&copy; 2025 Hexa Blog. All rights reserved. | Designed by <a href="#" style="color:#2575fc;">Aswinraj Manikandan</a></p>
+  </footer>
 
   <script>
+    // Dark mode toggle
+    function toggleMode(){
+      document.body.classList.toggle("dark");
+      const btn=document.querySelector(".toggle-btn");
+      btn.innerText=document.body.classList.contains("dark")?"☀️ Light":"🌙 Dark";
+    }
+    // Mobile menu toggle
+    function toggleMenu(){
+      document.getElementById("nav-links").classList.toggle("active");
+    }
+    // Age Calculator
     function calculateAge() {
       const dob=document.getElementById("dob").value;
       if(!dob){document.getElementById("result").innerText="⚠️ Please select your date of birth!"; return;}
@@ -145,17 +197,16 @@ body.dark .site-title {
       if(days<0){months--; days+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}
       if(months<0){years--; months+=12;}
       document.getElementById("result").innerText=`🎉 You are ${years} years, ${months} months, and ${days} days old.`;
+      
     }
+    function clearDOB() {
+  document.getElementById("dob").value = "";
+  document.getElementById("result").innerText = "";
+}
 
-    function toggleMode(){
-      document.body.classList.toggle("dark");
-      const btn=document.querySelector(".toggle-btn");
-      btn.innerText=document.body.classList.contains("dark")?"☀️ Light":"🌙 Dark";
-    }
-
-    function toggleMenu(){
-      document.getElementById("nav-links").classList.toggle("active");
-    }
+    // Restrict future date selection
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("dob").setAttribute("max", today);
   </script>
 </body>
 </html>
