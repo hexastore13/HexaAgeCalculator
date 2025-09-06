@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator - Calculate Your Age Online</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Free Age Calculator - Find your exact age in years, months, and days instantly online.">
+  <meta name="keywords" content="age calculator, calculate age online, find age, years months days">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="38e2bd0fb387ca4b" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Age Calculator - Calculate Your Age Online" />
+  <meta property="og:description" content="Use our free age calculator to find your exact age in years, months, and days instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/your-repository" />
+  <meta property="og:image" content="https://yourusername.github.io/your-repository/preview-image.png" />
+  <meta property="og:site_name" content="Age Calculator" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Age Calculator - Calculate Your Age Online" />
+  <meta name="twitter:description" content="Use our free age calculator to find your exact age in years, months, and days instantly." />
+  <meta name="twitter:image" content="https://yourusername.github.io/your-repository/preview-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { min-height:100vh; background:linear-gradient(135deg,#74ebd5,#9face6); transition:background 0.3s ease; }
+
+    /* Navbar */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 25px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border-radius:15px; margin:15px; box-shadow:0 4px 20px rgba(0,0,0,0.2); }
+    .navbar .logo img { max-height:50px; width:auto; }
+    .navbar ul { list-style:none; display:flex; gap:20px; }
+    .navbar ul li a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
+    .navbar ul li a:hover { color:#ffd700; }
+    .menu-toggle { display:none; font-size:1.8rem; color:#fff; cursor:pointer; }
+
+    @media (max-width:768px) {
+      .navbar ul { display:none; flex-direction:column; background:rgba(0,0,0,0.7); position:absolute; top:70px; right:20px; padding:15px; border-radius:12px; }
+      .navbar ul.active { display:flex; }
+      .menu-toggle { display:block; }
+    }
+
+    /* Container */
+    .container { background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border-radius:20px; padding:40px; text-align:center; width:90%; max-width:400px; margin:60px auto; box-shadow:0 8px 32px rgba(0,0,0,0.2); transition:background 0.3s ease; }
+    h1 { font-size:1.8rem; color:#fff; margin-bottom:20px; }
+    input[type="date"] { padding:12px; border-radius:10px; border:none; outline:none; width:100%; font-size:1rem; margin-bottom:20px; }
+    button { background:linear-gradient(to right,#2575fc,#6a11cb); border:none; color:#fff; padding:12px 20px; font-size:1rem; border-radius:12px; cursor:pointer; transition:0.3s ease; width:100%; }
+    button:hover { opacity:0.9; transform:scale(1.03); }
+    .result { margin-top:25px; font-size:1.2rem; font-weight:500; color:#fff; }
+
+    /* Dark Mode */
+    body.dark { background:linear-gradient(135deg,#141e30,#243b55); }
+    body.dark .navbar { background:rgba(0,0,0,0.4); }
+    body.dark .navbar .logo img, body.dark .navbar ul li a, body.dark h1, body.dark .result { color:#f0f0f0; }
+    body.dark .container { background:rgba(0,0,0,0.3); }
+
+    /* Dark Mode Button */
+    .toggle-btn { background:#fff; color:#333; border:none; padding:8px 14px; border-radius:20px; cursor:pointer; font-size:0.9rem; font-weight:500; transition:0.3s ease; margin-left:15px; }
+    .toggle-btn:hover { background:#eee; }
+
+    /* Logo + Title container */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo-title left, menu right */
+  align-items: center; /* vertically center everything */
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Logo + Title container */
+.logo-title {
+  display: flex;
+  align-items: center; /* vertically center logo and text */
+  gap: 20px; /* space between logo and text */
+}
+
+/* Logo image */
+.logo-title img {
+  max-height: 50px;
+  width: auto;
+}
+
+/* Title text */
+.site-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Dark mode title color */
+body.dark .site-title {
+  color: #f0f0f0;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo"><img src="images.png" alt="Hexa Age Calculator Logo"> <span class="site-title">Hexa Age Calculator</span></div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Calculator</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div>
+      <button class="toggle-btn" onclick="toggleMode()">🌙 Dark</button>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </div>
+
+  <!-- Age Calculator -->
+  <div class="container">
+    <h1>✨ Age Calculator ✨</h1>
+    <input type="date" id="dob" />
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      const dob=document.getElementById("dob").value;
+      if(!dob){document.getElementById("result").innerText="⚠️ Please select your date of birth!"; return;}
+      const birthDate=new Date(dob);
+      const today=new Date();
+      let years=today.getFullYear()-birthDate.getFullYear();
+      let months=today.getMonth()-birthDate.getMonth();
+      let days=today.getDate()-birthDate.getDate();
+      if(days<0){months--; days+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}
+      if(months<0){years--; months+=12;}
+      document.getElementById("result").innerText=`🎉 You are ${years} years, ${months} months, and ${days} days old.`;
+    }
+
+    function toggleMode(){
+      document.body.classList.toggle("dark");
+      const btn=document.querySelector(".toggle-btn");
+      btn.innerText=document.body.classList.contains("dark")?"☀️ Light":"🌙 Dark";
+    }
+
+    function toggleMenu(){
+      document.getElementById("nav-links").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
